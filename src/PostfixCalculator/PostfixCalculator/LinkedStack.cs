@@ -11,13 +11,16 @@ namespace PostfixCalculator
     */
     class LinkedStack : IStackADT
     {
+        //Global variables
         private Node top;
 
+        //Constructor
         public LinkedStack()
         {
             top = null;
         }
 
+        //Stack Pop method
         public object Pop()
         {
             if (IsEmpty)
@@ -29,15 +32,19 @@ namespace PostfixCalculator
             return topItem;
         }
 
-        public object Peek => IsEmpty ? null: top.Data;
+        //Stack Peek method
+        public object Peek => IsEmpty ? null : top.Data; //returns null if empty and top.Data if it isn't
 
+        //Clear, sets top pointer to null
         public void Clear()
         {
             top = null;
         }
 
+        //IsEmpty, Checks if top is null
         public bool IsEmpty => top == null;
 
+        //Push method, pushes the new object onto the stack
         public object Push(object newItem)
         {
             if (newItem == null)

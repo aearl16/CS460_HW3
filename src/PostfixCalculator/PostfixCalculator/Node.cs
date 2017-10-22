@@ -6,21 +6,33 @@ using System.Threading.Tasks;
 
 namespace PostfixCalculator
 {
+    /**
+     * Class Node, used for type generics
+     */
     class Node
     {
-        private static object data;
-        public static Node next;
+        //Global variables
+        object data;
+        Node next;
 
+        /**
+         * Default constructor for Node
+         */
         public Node()
         {
             data = null;
             next = null;
         }
 
-        public Node(object data, Node next)
+        /**
+         * Constructor for Node
+         * input object the data to be input, Node the pointer to the
+         * next element
+         */
+        public Node(object newData, Node newNext)
         {
-            Node.data = data;
-            Node.next = next;
+            data = newData;
+            next = newNext;
         }
 
         /**
@@ -31,9 +43,9 @@ namespace PostfixCalculator
         }
         */
 
-        //More CSharpish way to do it
-        public object Data { get; set; } = data;
+        //More CSharpish way to do it, previous is also valid
+        public object Data { get { return data; } set { data = value; } }
 
-        public Node Next { set; get; } = next;
+        public Node Next { get { return next; } set { next = value; } }
     }
 }
